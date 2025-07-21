@@ -6,8 +6,8 @@ import joblib
 # Load full pipeline (includes preprocessor + model)
 model = joblib.load("car_price_pipeline.pkl")
 
-st.set_page_config(page_title="Car Price Predictor 🚗", layout="centered")
-st.title("🚗 Car Price Prediction App")
+st.set_page_config(page_title="Car Price Predictor ", layout="centered")
+st.title(" Car Price Prediction App")
 
 # Default input
 car_name = st.text_input("Car Name (not used in prediction)", "ritz")
@@ -19,7 +19,7 @@ fuel_type = st.selectbox("Fuel Type", ['Petrol', 'Diesel', 'CNG'], index=0)
 selling_type = st.selectbox("Selling Type", ['Dealer', 'Individual'], index=0)
 transmission = st.selectbox("Transmission Type", ['Manual', 'Automatic'], index=0)
 
-if st.button("Predict Selling Price 💰"):
+if st.button("Predict Selling Price "):
     input_df = pd.DataFrame([{
         'Year': year,
         'Present_Price': present_price,
@@ -31,4 +31,4 @@ if st.button("Predict Selling Price 💰"):
     }])
     
     prediction = model.predict(input_df)[0]
-    st.success(f"💵 Estimated Selling Price: ₹ {prediction:.2f} lakhs")
+    st.success(f"Estimated Selling Price: ₹ {prediction:.2f} lakhs")
